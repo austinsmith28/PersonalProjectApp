@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		303F6C6A222E15710072BB47 /* Pods_AppOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED23EECAB8A0081F50B63AE5 /* Pods_AppOne.framework */; };
+		303F6C70222E21F80072BB47 /* AfterLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303F6C6F222E21F80072BB47 /* AfterLogin.swift */; };
 		30A84DA2222DFFF900FE0E55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A84DA1222DFFF900FE0E55 /* AppDelegate.swift */; };
 		30A84DA4222DFFF900FE0E55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A84DA3222DFFF900FE0E55 /* ViewController.swift */; };
 		30A84DA7222DFFF900FE0E55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A84DA5222DFFF900FE0E55 /* Main.storyboard */; };
 		30A84DAA222DFFF900FE0E55 /* AppOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30A84DA8222DFFF900FE0E55 /* AppOne.xcdatamodeld */; };
 		30A84DAC222DFFFB00FE0E55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A84DAB222DFFFB00FE0E55 /* Assets.xcassets */; };
 		30A84DAF222DFFFB00FE0E55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A84DAD222DFFFB00FE0E55 /* LaunchScreen.storyboard */; };
-		D28266FABEB6E117E5861D27 /* Pods_AppOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED23EECAB8A0081F50B63AE5 /* Pods_AppOne.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		303F6C66222E15620072BB47 /* SCSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCSDKCoreKit.framework; path = Pods/SnapSDK/SCSDKCoreKit.framework; sourceTree = "<group>"; };
+		303F6C6C222E15940072BB47 /* SCSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCSDKLoginKit.framework; path = Pods/SnapSDK/SCSDKLoginKit.framework; sourceTree = "<group>"; };
+		303F6C6F222E21F80072BB47 /* AfterLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterLogin.swift; sourceTree = "<group>"; };
 		30A84D9E222DFFF900FE0E55 /* AppOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A84DA1222DFFF900FE0E55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30A84DA3222DFFF900FE0E55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D28266FABEB6E117E5861D27 /* Pods_AppOne.framework in Frameworks */,
+				303F6C6A222E15710072BB47 /* Pods_AppOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +49,8 @@
 		30A84D95222DFFF900FE0E55 = {
 			isa = PBXGroup;
 			children = (
+				303F6C6C222E15940072BB47 /* SCSDKLoginKit.framework */,
+				303F6C66222E15620072BB47 /* SCSDKCoreKit.framework */,
 				30A84DA0222DFFF900FE0E55 /* AppOne */,
 				30A84D9F222DFFF900FE0E55 /* Products */,
 				398F09728CF966A095C2067D /* Pods */,
@@ -66,6 +72,7 @@
 				30A84DA1222DFFF900FE0E55 /* AppDelegate.swift */,
 				30A84DA3222DFFF900FE0E55 /* ViewController.swift */,
 				30A84DA5222DFFF900FE0E55 /* Main.storyboard */,
+				303F6C6F222E21F80072BB47 /* AfterLogin.swift */,
 				30A84DAB222DFFFB00FE0E55 /* Assets.xcassets */,
 				30A84DAD222DFFFB00FE0E55 /* LaunchScreen.storyboard */,
 				30A84DB0222DFFFB00FE0E55 /* Info.plist */,
@@ -80,7 +87,6 @@
 				8AD49A0A97A976AA2B2F961E /* Pods-AppOne.debug.xcconfig */,
 				89D0CDFA1A96AAF95D20D0E9 /* Pods-AppOne.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -224,6 +230,7 @@
 			files = (
 				30A84DAA222DFFF900FE0E55 /* AppOne.xcdatamodeld in Sources */,
 				30A84DA4222DFFF900FE0E55 /* ViewController.swift in Sources */,
+				303F6C70222E21F80072BB47 /* AfterLogin.swift in Sources */,
 				30A84DA2222DFFF900FE0E55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +379,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G2232QB4F2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/SnapSDK",
+				);
 				INFOPLIST_FILE = AppOne/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +403,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G2232QB4F2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/SnapSDK",
+				);
 				INFOPLIST_FILE = AppOne/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
