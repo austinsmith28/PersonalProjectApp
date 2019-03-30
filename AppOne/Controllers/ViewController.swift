@@ -9,29 +9,34 @@
 import UIKit
 import SCSDKLoginKit
 import Foundation
-import UIKit
 import ImageIO
+import GoogleMaps
+import Firebase
+import FirebaseDatabase
 
 class ViewController: UIViewController {
-
-
     
+    var ref : DatabaseReference!
+    var uid : String!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //gifView.loadGif(asset: "loading")
+       
+       
+            
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     
-
     @IBAction func loginButton(_ sender: Any) {
         SCSDKLoginClient.login(from: self) { (success : Bool, error : Error?) in
             if(success){
             self.fetchSnapUserInfo()
+          
+                
             }
             else {
                 print(error.debugDescription)
@@ -39,6 +44,8 @@ class ViewController: UIViewController {
         }
 
     }
+    
+    
  
     
     private func fetchSnapUserInfo(){
@@ -59,14 +66,45 @@ class ViewController: UIViewController {
                 bitmojiAvatarUrl = bitmoji["avatar"] as? String
             }
             
+    
             
+            
+            Auth.auth().signInAnonymously() { (authResult, error) in
+               let ref = Database.database().reference()
+               let user = authResult?.user
+                let isAnonymous = user?.isAnonymous
+               let uid = user?.uid
+                
+                
+                
+                
+                
+                ref.child("users").child(uid!).setValue(["name":displayName, "isAnonymous":isAnonymous, "bitmojiURL": bitmojiAvatarUrl])
+            }
+        
            
         }, failure: { (error: Error?, isUserLoggedOut: Bool) in
             // handle error
         })
-        self.performSegue(withIdentifier: "afterLogin", sender: self)
+        
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "afterLogin")
+            self.show(vc, sender: self)
+        }
+       
 
     }
+
+    
+    /*
+    func hasAccount () -> Bool {
+        if uid != nil || uid != "" {
+            return account
+        }
+        return account
+    }
+  */
 
 }
 

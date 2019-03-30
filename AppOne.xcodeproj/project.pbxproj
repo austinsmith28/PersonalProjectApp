@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30125CB7224460DF00D04FBF /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 30125CB6224460DF00D04FBF /* style.json */; };
+		30125CB9224468B900D04FBF /* CreatePartyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30125CB8224468B900D04FBF /* CreatePartyController.swift */; };
+		302F8A442240123C00DEB42B /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302F8A432240123C00DEB42B /* Map.swift */; };
 		303F6C6A222E15710072BB47 /* Pods_AppOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED23EECAB8A0081F50B63AE5 /* Pods_AppOne.framework */; };
 		303F6C70222E21F80072BB47 /* AfterLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303F6C6F222E21F80072BB47 /* AfterLogin.swift */; };
+		3065ABEA22485F8A0034BE03 /* DateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3065ABE922485F8A0034BE03 /* DateController.swift */; };
+		3065ABEC2248637A0034BE03 /* NewPartyDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3065ABEB2248637A0034BE03 /* NewPartyDetailsController.swift */; };
 		307C58C8223AE693004BE957 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307C58C7223AE693004BE957 /* GoogleService-Info.plist */; };
 		30A84DA2222DFFF900FE0E55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A84DA1222DFFF900FE0E55 /* AppDelegate.swift */; };
 		30A84DA4222DFFF900FE0E55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A84DA3222DFFF900FE0E55 /* ViewController.swift */; };
@@ -18,9 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30125CB6224460DF00D04FBF /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
+		30125CB8224468B900D04FBF /* CreatePartyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyController.swift; sourceTree = "<group>"; };
+		302F8A432240123C00DEB42B /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		303F6C66222E15620072BB47 /* SCSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCSDKCoreKit.framework; path = Pods/SnapSDK/SCSDKCoreKit.framework; sourceTree = "<group>"; };
 		303F6C6C222E15940072BB47 /* SCSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCSDKLoginKit.framework; path = Pods/SnapSDK/SCSDKLoginKit.framework; sourceTree = "<group>"; };
 		303F6C6F222E21F80072BB47 /* AfterLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterLogin.swift; sourceTree = "<group>"; };
+		3065ABE922485F8A0034BE03 /* DateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateController.swift; sourceTree = "<group>"; };
+		3065ABEB2248637A0034BE03 /* NewPartyDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPartyDetailsController.swift; sourceTree = "<group>"; };
 		307C58C7223AE693004BE957 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30A84D9E222DFFF900FE0E55 /* AppOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A84DA1222DFFF900FE0E55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,11 +56,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		303B4A2E223C18B00006AE63 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		30723078223AFBF000D0BD7D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				30A84DA3222DFFF900FE0E55 /* ViewController.swift */,
 				303F6C6F222E21F80072BB47 /* AfterLogin.swift */,
+				302F8A432240123C00DEB42B /* Map.swift */,
+				30125CB8224468B900D04FBF /* CreatePartyController.swift */,
+				3065ABEB2248637A0034BE03 /* NewPartyDetailsController.swift */,
+				3065ABE922485F8A0034BE03 /* DateController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -78,6 +100,7 @@
 		30A84DA0222DFFF900FE0E55 /* AppOne */ = {
 			isa = PBXGroup;
 			children = (
+				303B4A2E223C18B00006AE63 /* Fonts */,
 				30723078223AFBF000D0BD7D /* Controllers */,
 				30FE711A2231B8E60017550D /* Info.plist */,
 				307C58C7223AE693004BE957 /* GoogleService-Info.plist */,
@@ -85,6 +108,7 @@
 				30A84DA5222DFFF900FE0E55 /* Main.storyboard */,
 				30A84DAB222DFFFB00FE0E55 /* Assets.xcassets */,
 				30A84DAD222DFFFB00FE0E55 /* LaunchScreen.storyboard */,
+				30125CB6224460DF00D04FBF /* style.json */,
 			);
 			path = AppOne;
 			sourceTree = "<group>";
@@ -118,6 +142,7 @@
 				30A84D9B222DFFF900FE0E55 /* Frameworks */,
 				30A84D9C222DFFF900FE0E55 /* Resources */,
 				E785477907BEAFBE6E255ACB /* [CP] Embed Pods Frameworks */,
+				841D252BEB526645712CD581 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,6 +194,7 @@
 				30A84DAF222DFFFB00FE0E55 /* LaunchScreen.storyboard in Resources */,
 				307C58C8223AE693004BE957 /* GoogleService-Info.plist in Resources */,
 				30A84DAC222DFFFB00FE0E55 /* Assets.xcassets in Resources */,
+				30125CB7224460DF00D04FBF /* style.json in Resources */,
 				30A84DA7222DFFF900FE0E55 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +202,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		841D252BEB526645712CD581 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppOne/Pods-AppOne-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppOne/Pods-AppOne-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E785477907BEAFBE6E255ACB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +233,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AppOne/Pods-AppOne-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
@@ -192,12 +241,14 @@
 				"${PODS_ROOT}/SnapSDK/SCSDKCoreKit.framework",
 				"${PODS_ROOT}/SnapSDK/SCSDKCreativeKit.framework",
 				"${PODS_ROOT}/SnapSDK/SCSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
@@ -205,6 +256,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKCreativeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,7 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A84DA4222DFFF900FE0E55 /* ViewController.swift in Sources */,
+				3065ABEA22485F8A0034BE03 /* DateController.swift in Sources */,
+				3065ABEC2248637A0034BE03 /* NewPartyDetailsController.swift in Sources */,
 				303F6C70222E21F80072BB47 /* AfterLogin.swift in Sources */,
+				30125CB9224468B900D04FBF /* CreatePartyController.swift in Sources */,
+				302F8A442240123C00DEB42B /* Map.swift in Sources */,
 				30A84DA2222DFFF900FE0E55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

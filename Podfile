@@ -8,5 +8,12 @@ target 'AppOne' do
  	pod 'SnapSDK'
 
 	pod'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+ 
+  pod 'GoogleMaps'
+    
+  
+    
 
 end

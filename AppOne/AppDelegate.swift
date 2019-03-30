@@ -10,15 +10,24 @@ import UIKit
 import CoreData
 import SCSDKLoginKit
 import Firebase
+import GoogleMaps
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let googleAPICONST = "AIzaSyD_4LJ4LIl-p_nmEZfBjMDGvqxONKxz5ag"
         
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
         
+        
+        FirebaseApp.configure()
+       
+        
+        GMSServices.provideAPIKey(googleAPICONST)
+
+    
     return true
     }
 
@@ -31,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return SCSDKLoginClient.application(app, open: url, options: options)
        
     }
+    
+   
     
     
     
@@ -54,6 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }

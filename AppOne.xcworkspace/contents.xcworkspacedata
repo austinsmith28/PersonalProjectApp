@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/davidlepore/Desktop/ProjectOne/AppOne/AppOne/Info.plist">
-   </FileRef>
-   <FileRef
       location = "group:AppOne.xcodeproj">
    </FileRef>
    <FileRef
