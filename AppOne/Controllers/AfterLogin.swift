@@ -12,32 +12,34 @@ class AfterLogin: UIViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
       
-            let userID = Auth.auth().currentUser?.uid
-        
-       
-    
-           let ref = Database.database().reference()
-        
-        
-        print("here it is", ref.child("users").child(userID ?? "needsaccount") )
-        
-        let test = ref.child("users").child("needsaccount")
-        let u = ref.child("users").child(userID ?? "needsaccount")
-        
-        print("test", test.description())
-        print("u", u.description())
-        if u.description() == test.description() {
-           print ("they are equal")
-            
-            DispatchQueue.main.async {
+        Auth.auth().addStateDidChangeListener { (Auth, user) in
+            if user != nil {
                 
+                DispatchQueue.main.async {
+                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "googleMap")
+                    self.show(vc, sender: self)
+                }
                 
-                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "needsAccount")
-                self.show(vc, sender: self)
+            }
+            else {
+                DispatchQueue.main.async {
+                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "needsAccount")
+                    self.show(vc, sender: self)
+                }
+                
             }
         }
+           
+        
+            
+        
+       
+        
+        
         
         
         

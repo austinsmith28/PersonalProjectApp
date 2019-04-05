@@ -8,10 +8,12 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 
 
-class Map: UIViewController {
+class Map: UIViewController{
 
+     let partyDetails = NewPartyDetailsController()
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -20,38 +22,14 @@ class Map: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Do any additional setup after loading the view.
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        // Do any additional setup after loading the view.
-        do {
-            // Set the map style by passing the URL of the local file.
-            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
-                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
-            } else {
-                NSLog("Unable to find style.json")
-            }
-        } catch {
-            NSLog("One or more of the map styles failed to load. \(error)")
-        }
-            
+        darkMode();
        
         self.view.addSubview(mapView)
     }
     
-
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 
 }
@@ -79,12 +57,28 @@ extension Map: CLLocationManagerDelegate {
         
         // 7
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-        
+
         // 8
         locationManager.stopUpdatingLocation()
     }
     
     
+    //puts the map in darkmode
+    func darkMode() -> Void {
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
+    }
 }
+
+
 
 

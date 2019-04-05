@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
+import Firebase
 
 class CreatePartyController: UIViewController, UITextFieldDelegate {
     
+    var coordLocation:CLLocation!
     
     @IBOutlet weak var address: UITextField!
     
@@ -21,10 +24,15 @@ class CreatePartyController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var zipCode: UITextField!
     
-
+    @IBAction func continueClicked(_ sender: Any) {
+        let createLoc = createLocation()
+        addressToCoordinate(address: createLoc)
+    }
+    
     override func viewDidLoad() {
         
         
+   
         
         
         super.viewDidLoad()
@@ -32,11 +40,16 @@ class CreatePartyController: UIViewController, UITextFieldDelegate {
         city.delegate = self
         university.delegate = self
         zipCode.delegate = self
+        
+        
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
     
-    //when you press the return button on the create party page
+    //when you press the return button on keyboard on the create party page
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         hideKeyboard()
@@ -48,14 +61,50 @@ class CreatePartyController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addressToCoordinate(address: String) -> CLLocation {
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+    
+                else {
+                    print("addressToCord error")
+                    let alert = UIAlertController(title: "Alert", message: "Invalid address!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+            }
+            self.coordLocation = location
+        }
+        return coordLocation
     }
-    */
-
+    
+    
+    func createLocation() -> String {
+    let locAdd = address.text
+    let locCity = city.text
+    let locZip = zipCode.text
+    var locString = ""
+        
+    if (locAdd != nil && locCity != nil && locZip != nil) {
+    locString = locAdd! + ", " + locCity! + ", " + locZip!
+        return locString
+    }
+    else {
+        let alert = UIAlertController(title: "Alert", message: "Text fields cannot be empty!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return "createLocation error"
+        }
+        
+    }
+    
+    
+    func getLocCord() -> CLLocation {
+        return coordLocation
+    }
+    
 }
+
