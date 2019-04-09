@@ -8,95 +8,59 @@
 
 import UIKit
 import Firebase
-class AfterLogin: UIViewController  {
 
+class AfterLogin: UIViewController, UITextFieldDelegate  {
+    
+
+    @IBOutlet var email: UITextField!
+    
+    @IBOutlet var displayName: UITextField!
+    
+    @IBOutlet var password: UITextField!
+    
+    
+    @IBAction func createAccount(_ sender: Any) {
+        
+        let user = Auth.auth().currentUser
+        
+        Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!) { (auth, error) in
+            if error != nil {
+                print(error!)
+            }
+            else{
+                Database.database().reference().child("users").child(user!.uid).setValue(["email":self.email.text!, "displayName":self.displayName.text!])
+            }
+        }
+        
+    
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "logIn")
+            self.show(vc, sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
-        Auth.auth().addStateDidChangeListener { (Auth, user) in
-            if user != nil {
-                
-                DispatchQueue.main.async {
-                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "googleMap")
-                    self.show(vc, sender: self)
-                }
-                
-            }
-            else {
-                DispatchQueue.main.async {
-                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "needsAccount")
-                    self.show(vc, sender: self)
-                }
-                
-            }
-        }
-           
+        email.delegate = self
+        displayName.delegate = self
+        password.delegate = self
+    
         
-            
-        
-       
-        
-        
-        
-        
-        
-       
- /*
-        if ref.child("users").child(uid) == nil  {
-            
-               print(Auth.auth().currentUser?.isAnonymous)
-                
-               print ("no account associated with user, needs to sign up")
-                DispatchQueue.main.async {
-                    
-                    
-                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "needsAccount")
-                    self.show(vc, sender: self)
-                }
-                
-               
-                
-            }
-            else {
-                 print(Auth.auth().currentUser?.isAnonymous)
-                 print ("user has an account")
-                DispatchQueue.main.async {
-                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "googleMap")
-                    self.show(vc, sender: self)
-                }
-                
-            }
- */
-            //if(displayName != nil){
-                //ref.child("users").child(uid!).setValue(["name":displayName!, "bitmojiAvatarUrl": bitmojiAvatarUrl as Any, "isAnonymous": isAnonymous ?? false])
-            //}
-            
-            
-            
-            
-            
-            
-        
-         //self.performSegue(withIdentifier: "afterLogin", sender: self)
-        // Do any additional setup after loading the view.
     }
     
+    //when you press the return button on keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        hideKeyboard()
+        
+        return true
+    }
     
-    
-    
-     
-     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    //}
+    func hideKeyboard (){
+        self.view.endEditing(true)
+    }
  
 
 }

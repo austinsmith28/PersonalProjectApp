@@ -12,6 +12,7 @@ target 'AppOne' do
   pod 'Firebase/Auth'
  
   pod 'GoogleMaps'
+  pod 'GooglePlaces'
     
   
     

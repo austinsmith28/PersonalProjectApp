@@ -46,6 +46,8 @@ PODS:
   - GoogleMaps/Base (3.0.3)
   - GoogleMaps/Maps (3.0.3):
     - GoogleMaps/Base
+  - GooglePlaces (3.0.3):
+    - GoogleMaps/Base (= 3.0.3)
   - GoogleUtilities/AppDelegateSwizzler (5.3.7):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -88,6 +90,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - GoogleMaps
+  - GooglePlaces
   - SnapSDK
 
 SPEC REPOS:
@@ -101,6 +104,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - GoogleAppMeasurement
     - GoogleMaps
+    - GooglePlaces
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
@@ -119,6 +123,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
+  GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
@@ -127,6 +132,6 @@ SPEC CHECKSUMS:
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   SnapSDK: 16d505e0e5a9340c49ce767f3131f4af76fe29e8
 
-PODFILE CHECKSUM: cc5c861d04038c18d2a42e72b6f47de798b429f5
+PODFILE CHECKSUM: eea0bc92bcaede4b29c690f87930231f500e442b
 
 COCOAPODS: 1.6.1

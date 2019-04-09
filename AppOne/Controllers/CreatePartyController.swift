@@ -12,7 +12,29 @@ import Firebase
 
 class CreatePartyController: UIViewController, UITextFieldDelegate {
     
-    var coordLocation:CLLocation!
+    var locationManager  = CLLocationManager()
+    var geoCoder = CLGeocoder()
+    var loc:CLLocation!
+    
+    @IBAction func continueB(_ sender: Any) {
+        
+       self.getCoord()
+        
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "dateController")
+            self.show(vc, sender: self)
+        }
+    }
+    
+    @IBAction func mapButton(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "googleMap")
+            self.show(vc, sender: self)
+        }
+    }
+    
     
     @IBOutlet weak var address: UITextField!
     
@@ -21,33 +43,73 @@ class CreatePartyController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var university: UITextField!
     
+    @IBOutlet weak var stateLoc: UIPickerView!
     
-    @IBOutlet weak var zipCode: UITextField!
     
-    @IBAction func continueClicked(_ sender: Any) {
-        let createLoc = createLocation()
-        addressToCoordinate(address: createLoc)
+    
+    
+
+    /*
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 50
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(states[row])
+    }
+    
+    */
     
     override func viewDidLoad() {
         
         
-   
+      
         
         
         super.viewDidLoad()
         address.delegate = self
         city.delegate = self
         university.delegate = self
-        zipCode.delegate = self
         
         
         
+        
+       
         
         
 
         // Do any additional setup after loading the view.
     }
+    
+    func getCoord(){
+  var addy = address.text! + ", " + city.text!
+        
+        geoCoder.geocodeAddressString(addy) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            let lat = placemark?.location?.coordinate.latitude
+            let lon = placemark?.location?.coordinate.longitude
+            let location = placemark?.location
+            self.setLoc(location: location!)
+            
+        }
+    }
+    
+   
+    
+    func setLoc(location: CLLocation) {
+       loc = location
+    }
+    
+    func getLoc() -> CLLocation{
+        return loc
+    }
+    
+    
     
     //when you press the return button on keyboard on the create party page
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -61,50 +123,8 @@ class CreatePartyController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
 
-    func addressToCoordinate(address: String) -> CLLocation {
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
-            guard
-                let placemarks = placemarks,
-                let location = placemarks.first?.location
+   
     
-                else {
-                    print("addressToCord error")
-                    let alert = UIAlertController(title: "Alert", message: "Invalid address!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    return
-            }
-            self.coordLocation = location
-        }
-        return coordLocation
-    }
-    
-    
-    func createLocation() -> String {
-    let locAdd = address.text
-    let locCity = city.text
-    let locZip = zipCode.text
-    var locString = ""
-        
-    if (locAdd != nil && locCity != nil && locZip != nil) {
-    locString = locAdd! + ", " + locCity! + ", " + locZip!
-        return locString
-    }
-    else {
-        let alert = UIAlertController(title: "Alert", message: "Text fields cannot be empty!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        return "createLocation error"
-        }
-        
-    }
-    
-    
-    func getLocCord() -> CLLocation {
-        return coordLocation
-    }
     
 }
 

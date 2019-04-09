@@ -11,7 +11,21 @@ import UIKit
 class DateController: UIViewController {
 
     
-
+    @IBAction func continueButton(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "details")
+            self.show(vc, sender: self)
+        }
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "newParty")
+            self.show(vc, sender: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

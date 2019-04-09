@@ -3,16 +3,14 @@
 //  AppOne
 //
 //  Created by David Lepore on 3/24/19.
-//  Copyright © 2019 David&Austin. All rights reserved.
+//  Copyright © 2019 David & Austin. All rights reserved.
 //
 
 import UIKit
 
 class NewPartyDetailsController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    
-    @IBOutlet weak var viewPicker: UIPickerView!
-    
+    @IBOutlet var guestPicker: UIPickerView!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -31,9 +29,28 @@ class NewPartyDetailsController: UIViewController, UIPickerViewDataSource, UIPic
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        guestPicker.delegate = self 
    
 }
+   
+    
+    @IBAction func backButton(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "dateController")
+            self.show(vc, sender: self)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

@@ -20,6 +20,7 @@
 		30A84DA7222DFFF900FE0E55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A84DA5222DFFF900FE0E55 /* Main.storyboard */; };
 		30A84DAC222DFFFB00FE0E55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A84DAB222DFFFB00FE0E55 /* Assets.xcassets */; };
 		30A84DAF222DFFFB00FE0E55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A84DAD222DFFFB00FE0E55 /* LaunchScreen.storyboard */; };
+		30D81075225A70A00072B9E7 /* UserSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D81074225A70A00072B9E7 /* UserSettingsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		30A84DA6222DFFF900FE0E55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30A84DAB222DFFFB00FE0E55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30A84DAE222DFFFB00FE0E55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30D81074225A70A00072B9E7 /* UserSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
 		30FE711A2231B8E60017550D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/davidlepore/Desktop/ProjectOne/AppOne/AppOne/Info.plist; sourceTree = "<absolute>"; };
 		89D0CDFA1A96AAF95D20D0E9 /* Pods-AppOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppOne.release.xcconfig"; path = "Target Support Files/Pods-AppOne/Pods-AppOne.release.xcconfig"; sourceTree = "<group>"; };
 		8AD49A0A97A976AA2B2F961E /* Pods-AppOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppOne.debug.xcconfig"; path = "Target Support Files/Pods-AppOne/Pods-AppOne.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				303F6C6F222E21F80072BB47 /* AfterLogin.swift */,
 				302F8A432240123C00DEB42B /* Map.swift */,
 				30125CB8224468B900D04FBF /* CreatePartyController.swift */,
+				30D81074225A70A00072B9E7 /* UserSettingsController.swift */,
 				3065ABEB2248637A0034BE03 /* NewPartyDetailsController.swift */,
 				3065ABE922485F8A0034BE03 /* DateController.swift */,
 			);
@@ -212,12 +215,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AppOne/Pods-AppOne-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -296,6 +301,7 @@
 				30A84DA4222DFFF900FE0E55 /* ViewController.swift in Sources */,
 				3065ABEA22485F8A0034BE03 /* DateController.swift in Sources */,
 				3065ABEC2248637A0034BE03 /* NewPartyDetailsController.swift in Sources */,
+				30D81075225A70A00072B9E7 /* UserSettingsController.swift in Sources */,
 				303F6C70222E21F80072BB47 /* AfterLogin.swift in Sources */,
 				30125CB9224468B900D04FBF /* CreatePartyController.swift in Sources */,
 				302F8A442240123C00DEB42B /* Map.swift in Sources */,
