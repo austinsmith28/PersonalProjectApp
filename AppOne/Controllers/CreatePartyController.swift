@@ -18,7 +18,7 @@ class CreatePartyController: UIViewController, UITextFieldDelegate {
     
     @IBAction func continueB(_ sender: Any) {
         
-       self.getCoord()
+        self.getCoord()
         
         DispatchQueue.main.async {
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -86,28 +86,25 @@ class CreatePartyController: UIViewController, UITextFieldDelegate {
     }
     
     func getCoord(){
-  var addy = address.text! + ", " + city.text!
+  let addy = self.address.text! + ", " + self.city.text!
         
         geoCoder.geocodeAddressString(addy) {
             placemarks, error in
             let placemark = placemarks?.first
             let lat = placemark?.location?.coordinate.latitude
-            let lon = placemark?.location?.coordinate.longitude
+            let long = placemark?.location?.coordinate.longitude
             let location = placemark?.location
-            self.setLoc(location: location!)
             
+            let ref = Database.database().reference().child("posts").childByAutoId()
+            
+            ref.setValue(["lat":lat, "lng":long]) { (error, dbref) in
+                
+            }
         }
     }
     
    
     
-    func setLoc(location: CLLocation) {
-       loc = location
-    }
-    
-    func getLoc() -> CLLocation{
-        return loc
-    }
     
     
     

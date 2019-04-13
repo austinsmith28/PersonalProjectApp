@@ -5,7 +5,7 @@ target 'AppOne' do
 
  	use_frameworks!
 
- 	pod 'SnapSDK'
+
 
 	pod'Firebase/Core'
   pod 'Firebase/Database'

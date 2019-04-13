@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var password: UITextField!
     
+    var signinerror: UILabel!
+    
     
     @IBAction func ContinueButton(_ sender: Any) {
         
@@ -27,6 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().signIn(withEmail: self.emailField.text!, password: self.password.text!) { (auth, error) in
             
             if error != nil {
+            
                 print(error!)
             }
             else {
@@ -55,7 +58,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        if Auth.auth().currentUser != nil {
+            DispatchQueue.main.async {
+                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "googleMap")
+                self.show(vc, sender: self)
+            }
+        }
         emailField.delegate = self
        
         password.delegate = self

@@ -15,6 +15,15 @@
 		3065ABEA22485F8A0034BE03 /* DateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3065ABE922485F8A0034BE03 /* DateController.swift */; };
 		3065ABEC2248637A0034BE03 /* NewPartyDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3065ABEB2248637A0034BE03 /* NewPartyDetailsController.swift */; };
 		307C58C8223AE693004BE957 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307C58C7223AE693004BE957 /* GoogleService-Info.plist */; };
+		308E0046226021AA007C043C /* Signika-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308E003D226021AA007C043C /* Signika-Light.ttf */; };
+		308E0047226021AA007C043C /* SignikaNegative-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308E003E226021AA007C043C /* SignikaNegative-Bold.ttf */; };
+		308E0048226021AA007C043C /* Signika-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308E003F226021AA007C043C /* Signika-Regular.ttf */; };
+		308E0049226021AA007C043C /* SignikaNegative-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308E0040226021AA007C043C /* SignikaNegative-Semibold.ttf */; };
+		308E004A226021AA007C043C /* Signika-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308E0041226021AA007C043C /* Signika-Semibold.ttf */; };
+		308E004B226021AA007C043C /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 308E0042226021AA007C043C /* OFL.txt */; };
+		308E004C226021AA007C043C /* SignikaNegative-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308E0043226021AA007C043C /* SignikaNegative-Regular.ttf */; };
+		308E004D226021AA007C043C /* Signika-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308E0044226021AA007C043C /* Signika-Bold.ttf */; };
+		308E004E226021AA007C043C /* SignikaNegative-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308E0045226021AA007C043C /* SignikaNegative-Light.ttf */; };
 		30A84DA2222DFFF900FE0E55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A84DA1222DFFF900FE0E55 /* AppDelegate.swift */; };
 		30A84DA4222DFFF900FE0E55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A84DA3222DFFF900FE0E55 /* ViewController.swift */; };
 		30A84DA7222DFFF900FE0E55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A84DA5222DFFF900FE0E55 /* Main.storyboard */; };
@@ -33,6 +42,15 @@
 		3065ABE922485F8A0034BE03 /* DateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateController.swift; sourceTree = "<group>"; };
 		3065ABEB2248637A0034BE03 /* NewPartyDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPartyDetailsController.swift; sourceTree = "<group>"; };
 		307C58C7223AE693004BE957 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		308E003D226021AA007C043C /* Signika-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Light.ttf"; sourceTree = "<group>"; };
+		308E003E226021AA007C043C /* SignikaNegative-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Bold.ttf"; sourceTree = "<group>"; };
+		308E003F226021AA007C043C /* Signika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.ttf"; sourceTree = "<group>"; };
+		308E0040226021AA007C043C /* SignikaNegative-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Semibold.ttf"; sourceTree = "<group>"; };
+		308E0041226021AA007C043C /* Signika-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.ttf"; sourceTree = "<group>"; };
+		308E0042226021AA007C043C /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		308E0043226021AA007C043C /* SignikaNegative-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Regular.ttf"; sourceTree = "<group>"; };
+		308E0044226021AA007C043C /* Signika-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Bold.ttf"; sourceTree = "<group>"; };
+		308E0045226021AA007C043C /* SignikaNegative-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Light.ttf"; sourceTree = "<group>"; };
 		30A84D9E222DFFF900FE0E55 /* AppOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A84DA1222DFFF900FE0E55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30A84DA3222DFFF900FE0E55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,14 +76,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		303B4A2E223C18B00006AE63 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Fonts;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		30723078223AFBF000D0BD7D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,22 @@
 				3065ABE922485F8A0034BE03 /* DateController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		308E003C226021AA007C043C /* Signika */ = {
+			isa = PBXGroup;
+			children = (
+				308E003D226021AA007C043C /* Signika-Light.ttf */,
+				308E003E226021AA007C043C /* SignikaNegative-Bold.ttf */,
+				308E003F226021AA007C043C /* Signika-Regular.ttf */,
+				308E0040226021AA007C043C /* SignikaNegative-Semibold.ttf */,
+				308E0041226021AA007C043C /* Signika-Semibold.ttf */,
+				308E0042226021AA007C043C /* OFL.txt */,
+				308E0043226021AA007C043C /* SignikaNegative-Regular.ttf */,
+				308E0044226021AA007C043C /* Signika-Bold.ttf */,
+				308E0045226021AA007C043C /* SignikaNegative-Light.ttf */,
+			);
+			path = Signika;
 			sourceTree = "<group>";
 		};
 		30A84D95222DFFF900FE0E55 = {
@@ -103,7 +129,7 @@
 		30A84DA0222DFFF900FE0E55 /* AppOne */ = {
 			isa = PBXGroup;
 			children = (
-				303B4A2E223C18B00006AE63 /* Fonts */,
+				308E003C226021AA007C043C /* Signika */,
 				30723078223AFBF000D0BD7D /* Controllers */,
 				30FE711A2231B8E60017550D /* Info.plist */,
 				307C58C7223AE693004BE957 /* GoogleService-Info.plist */,
@@ -194,11 +220,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				308E004D226021AA007C043C /* Signika-Bold.ttf in Resources */,
 				30A84DAF222DFFFB00FE0E55 /* LaunchScreen.storyboard in Resources */,
+				308E004B226021AA007C043C /* OFL.txt in Resources */,
 				307C58C8223AE693004BE957 /* GoogleService-Info.plist in Resources */,
+				308E0046226021AA007C043C /* Signika-Light.ttf in Resources */,
+				308E004E226021AA007C043C /* SignikaNegative-Light.ttf in Resources */,
 				30A84DAC222DFFFB00FE0E55 /* Assets.xcassets in Resources */,
+				308E0048226021AA007C043C /* Signika-Regular.ttf in Resources */,
+				308E0049226021AA007C043C /* SignikaNegative-Semibold.ttf in Resources */,
+				308E0047226021AA007C043C /* SignikaNegative-Bold.ttf in Resources */,
 				30125CB7224460DF00D04FBF /* style.json in Resources */,
+				308E004A226021AA007C043C /* Signika-Semibold.ttf in Resources */,
 				30A84DA7222DFFF900FE0E55 /* Main.storyboard in Resources */,
+				308E004C226021AA007C043C /* SignikaNegative-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,9 @@ class NewPartyDetailsController: UIViewController, UIPickerViewDataSource, UIPic
     
     @IBOutlet var guestPicker: UIPickerView!
     
+    @IBOutlet var detailsBox: UITextField!
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -29,6 +32,7 @@ class NewPartyDetailsController: UIViewController, UIPickerViewDataSource, UIPic
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         guestPicker.delegate = self 
    
 }

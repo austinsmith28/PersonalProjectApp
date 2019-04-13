@@ -15,6 +15,8 @@ import Firebase
 class Map: UIViewController, GMSMapViewDelegate{
 
      let partyDetails = NewPartyDetailsController()
+    var maxDistance = 50.0
+    var userLocation:CLLocation!
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -38,19 +40,19 @@ class Map: UIViewController, GMSMapViewDelegate{
     }
     
     
-    
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D){
+   /*
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D){
         print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
         //mapView.clear() // clearing Pin before adding new
         let marker = GMSMarker(position: coordinate)
         
         let user = Auth.auth().currentUser
         
-        var ref = Database.database().reference().child("users").child(user!.uid).child("currentLocation")
+        //var ref = Database.database().reference().child("users").child(user!.uid).child("currentLocation")
         
-        var ref1 = Database.database().reference().child("posts").childByAutoId().child("currentLocation")
+        let ref = Database.database().reference().child("posts").childByAutoId()
         
-        ref1.updateChildValues(["lat":coordinate.latitude, "long":coordinate.longitude]) { (error, dbref) in
+        ref.setValue(["lat":coordinate.latitude, "lng":coordinate.longitude]) { (error, dbref) in
             
         }
         
@@ -61,13 +63,22 @@ class Map: UIViewController, GMSMapViewDelegate{
         marker.map = mapView
     }
     
-    
+    */
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
+        
+       
+        self.getUserLocation()
+       
+        self.getMaxDistance()
+        
         self.loadMarkersFromDB()
+        
         mapView.delegate = self
         // Do any additional setup after loading the view.
         locationManager.delegate = self
@@ -77,33 +88,125 @@ class Map: UIViewController, GMSMapViewDelegate{
         self.view.addSubview(mapView)
     }
     
-
-    func loadMarkersFromDB() {
-        let ref = Database.database().reference().child("posts")
-        ref.observe(.childAdded, with: { (snapshot) in
-            if snapshot.value as? [String : AnyObject] != nil {
-                self.mapView.clear()
-                guard let spot = snapshot.value as? [String : AnyObject] else {
+    
+    
+    
+    
+    
+    
+    
+    func getMaxDistance() {
+        print("in get maxDistance func")
+        let ref1 = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
+        ref1.observe(.value, with: { (snapshot) in
+            if snapshot.value as? [String : Any] != nil {
+                
+                
+                guard let userProfile = snapshot.value as? [String : AnyObject] else {
                     return
                 }
+                
+                
+                // Get maxDistance
+                self.maxDistance = userProfile["MaxDistance"] as! Double
+                
+             
+                
+                
+                
+            }
+        }, withCancel: nil)
+    }
+    
+    func getUserLocation() {
+        print("in get location func")
+        let ref1 = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
+        ref1.observe(.value, with: { (snapshot) in
+            if snapshot.value as? [String : Any] != nil {
+                
+                
+                guard let userProfile = snapshot.value as? [String : AnyObject] else {
+                    return
+                }
+                
+                
+                // Get usersLocation from database
+                
+                let userLat = userProfile["userLat"]
+                let userLong = userProfile["userLong"]
+                
+                self.userLocation = CLLocation(latitude: userLat as! CLLocationDegrees, longitude: userLong as! CLLocationDegrees)
+                
+                print("user location", self.userLocation)
+                
+            }
+        }, withCancel: nil)
+    }
+    
+    
+    
+    func loadMarkersFromDB() {
+        print ("in the loadmarker func")
+        
+        
+        
+        
+        let ref = Database.database().reference().child("posts")
+        ref.observe(.childAdded, with: { (snapshot) in
+            if snapshot.value as? [String : Any] != nil {
+                
+                
+                guard let currentLocation = snapshot.value as? [String : AnyObject] else {
+                    return
+                }
+                
                 // Get coordinate values from DB
-                let latitude = spot["lat"]
-                let longitude = spot["long"]
+                let latitude = currentLocation["lat"]
+                let longitude = currentLocation["lng"]
+                
+                
+                
+                print("in this bish")
+                print("LAT VAL ", latitude!, "LONG VAL ", longitude! )
+                
+                if latitude != nil && longitude != nil {
                 
                 DispatchQueue.main.async(execute: {
                     let marker = GMSMarker()
+                    
+                    let markerLoc = CLLocation(latitude: latitude as! CLLocationDegrees, longitude: longitude as! CLLocationDegrees)
+                    
+                    self.getUserLocation()
+                    
+                    let markerDistance = self.userLocation.distance(from: markerLoc)
+                    
+                    
+                    print("MARKER DISTANCE ", markerDistance)
+                    
+                    
+                    if markerDistance <= self.maxDistance * 1609.34 {
                     // Assign custom image for each marker
-                    let markerImage = self.resizeImage(image: UIImage.init(named: "Party")!, targetSize: CGSize(width: 30
-                        , height: 30)).withRenderingMode(.alwaysTemplate)
-                    let markerView = UIImageView(image: markerImage)
+                    //let markerImage = self.resizeImage(image: UIImage.init(named: "Party")!, targetSize: CGSize(width: 30
+                    //    , height: 30)).withRenderingMode(.alwaysTemplate)
+                   // let markerView = UIImageView(image: markerImage)
                     // Customize color of marker here:
                     //markerView.tintColor = rented ? .lightGray : UIColor(hexString: "19E698")
-                    marker.iconView = markerView
+                    //marker.iconView = markerView
                     marker.position = CLLocationCoordinate2D(latitude: latitude as! CLLocationDegrees, longitude: longitude as! CLLocationDegrees)
+                    
+                
+                    
+                    //marker.title = "testing... how much shit can i type into here before it wraps or looks dumb"
+                    //marker.snippet = "snippet test what about this one here i want a lot of text so i can see how it looks fuck shit damn those are good nice words to use pal"
                     marker.map = self.mapView
+                    
                     // *IMPORTANT* Assign all the spots data to the marker's userData property
-                    marker.userData = spot
+                    marker.userData = currentLocation
+                    }
+                    
+        
                 })
+                }
             }
         }, withCancel: nil)
     }
@@ -176,6 +279,9 @@ extension Map: CLLocationManagerDelegate {
         guard let location = locations.first else {
             return
         }
+        let ref = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
+        
+        ref.updateChildValues(["userLat": location.coordinate.latitude, "userLong":location.coordinate.longitude])
         
         // 7
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)

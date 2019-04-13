@@ -28,11 +28,11 @@ class AfterLogin: UIViewController, UITextFieldDelegate  {
                 print(error!)
             }
             else{
-                Database.database().reference().child("users").child(user!.uid).setValue(["email":self.email.text!, "displayName":self.displayName.text!])
+                
+            Database.database().reference().child("users").child(user!.uid).setValue(["email":self.email.text!, "displayName":self.displayName.text!])
             }
         }
         
-    
         DispatchQueue.main.async {
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "logIn")

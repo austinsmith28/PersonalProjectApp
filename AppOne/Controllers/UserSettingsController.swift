@@ -11,27 +11,47 @@ import Firebase
 
 class UserSettingsController: UIViewController {
 
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+   
+    
+    var maxDistance = 50.0
+    
+    @IBAction func distanceSlider(_ sender: UISlider){
+        //self.distanceLabel.text = String(format:"%.0f", self.maxDistance)
+        self.distanceLabel.text = String(Int(sender.value))
+        let ref = Database.database().reference().child("users")
+        
+        let maxToPass = distanceLabel.text?.toDouble()
+        
+        ref.child(Auth.auth().currentUser!.uid).updateChildValues((["MaxDistance": maxToPass]))
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getMaxDistance()
+       
+        let distanceString :String = String(format:"%.0f", self.maxDistance)
+        print("the string is", distanceString)
+        self.distanceLabel.text = distanceString
         // Do any additional setup after loading the view.
     }
     
    
     @IBAction func signOut(_ sender: Any) {
-        
+        if Auth.auth().currentUser != nil {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        DispatchQueue.main.async {
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "logIn")
-            self.show(vc, sender: self)
         }
     }
+    
     
     @IBAction func backButton(_ sender: Any) {
         DispatchQueue.main.async {
@@ -41,7 +61,28 @@ class UserSettingsController: UIViewController {
         }
     }
     
-    
+    func getMaxDistance() {
+        print("in get maxDistance func")
+        let ref1 = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
+        ref1.observe(.value, with: { (snapshot) in
+            if snapshot.value as? [String : Any] != nil {
+                
+                
+                guard let userProfile = snapshot.value as? [String : AnyObject] else {
+                    return
+                }
+                
+                
+                // Get maxDistance
+                self.maxDistance = (userProfile["MaxDistance"] as! Double)
+                
+                
+                   print("Max distance inside", self.maxDistance)
+                
+                
+            }
+        }, withCancel: nil)
+    }
     
 
     /*
@@ -54,4 +95,9 @@ class UserSettingsController: UIViewController {
     }
     */
 
+}
+extension String {
+    func toDouble() -> Double? {
+        return NumberFormatter().number(from: self)?.doubleValue
+    }
 }
