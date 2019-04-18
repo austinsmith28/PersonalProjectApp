@@ -8,9 +8,9 @@
 
 import UIKit
 import CoreData
-import SCSDKLoginKit
 import Firebase
 import GoogleMaps
+import GoogleMobileAds
 
 
 @UIApplicationMain
@@ -24,25 +24,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+         
         
         GMSServices.provideAPIKey(googleAPICONST)
+        
+        let map = Map()
+        map.getUserLocation()
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user == nil {
+                self.showLogin()
+            } else {
+                self.showMap()
+            }
+        }
+       
+        
+        
 
     
     return true
     }
-
-    func application(
-        _ app: UIApplication,
-        open url: URL,
-        options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        
-        return SCSDKLoginClient.application(app, open: url, options: options)
-       
-    }
     
    
+    func showLogin(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "logIn") as! LogInController
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+    }
     
+    func showMap(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "googleMap") as! Map
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+    }
     
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -65,13 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
      
        
         // Saves changes in the application's managed object context before the application terminates.

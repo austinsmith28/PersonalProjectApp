@@ -10,7 +10,7 @@ target 'AppOne' do
 	pod'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
- 
+  pod 'Google-Mobile-Ads-SDK'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
     

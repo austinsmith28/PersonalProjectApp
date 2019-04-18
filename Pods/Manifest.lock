@@ -35,6 +35,7 @@ PODS:
     - FirebaseCore (~> 5.3)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - Google-Mobile-Ads-SDK (7.41.0)
   - GoogleAppMeasurement (5.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -73,25 +74,14 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - PINCache (2.3)
-  - PINOperation (1.1.1)
-  - SnapSDK (1.2.2):
-    - SnapSDK/SCSDKBitmojiKit (= 1.2.2)
-    - SnapSDK/SCSDKCreativeKit (= 1.2.2)
-    - SnapSDK/SCSDKLoginKit (= 1.2.2)
-  - SnapSDK/SCSDKBitmojiKit (1.2.2):
-    - PINCache (< 3.1, >= 2.3)
-    - PINOperation (~> 1.1)
-  - SnapSDK/SCSDKCreativeKit (1.2.2)
-  - SnapSDK/SCSDKLoginKit (1.2.2)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - Google-Mobile-Ads-SDK
   - GoogleMaps
   - GooglePlaces
-  - SnapSDK
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -102,6 +92,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseDatabase
     - FirebaseInstanceID
+    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleMaps
     - GooglePlaces
@@ -109,9 +100,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
-    - PINCache
-    - PINOperation
-    - SnapSDK
 
 SPEC CHECKSUMS:
   Firebase: 59d557e064217fab6a03ff00baa73c06e73832e6
@@ -121,6 +109,7 @@ SPEC CHECKSUMS:
   FirebaseCore: c0c4befb82374d6aef64d800e569f47625352edc
   FirebaseDatabase: 23acb0c53cd4d4070a427b60100b2e4aaa97c45d
   FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
+  Google-Mobile-Ads-SDK: 101ce89b94fdf60ec64ba7b6e9b9d812dc765936
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
   GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
@@ -128,10 +117,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
-  PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
-  SnapSDK: 16d505e0e5a9340c49ce767f3131f4af76fe29e8
 
-PODFILE CHECKSUM: eea0bc92bcaede4b29c690f87930231f500e442b
+PODFILE CHECKSUM: 8a0da3ab301fea09bc00b724c7b9ed422debb052
 
 COCOAPODS: 1.6.1

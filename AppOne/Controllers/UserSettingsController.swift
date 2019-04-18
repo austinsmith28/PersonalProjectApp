@@ -14,6 +14,7 @@ class UserSettingsController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     
    
+    @IBOutlet weak var distanceSlider: UISlider!
     
     var maxDistance = 50.0
     
@@ -23,8 +24,7 @@ class UserSettingsController: UIViewController {
         let ref = Database.database().reference().child("users")
         
         let maxToPass = distanceLabel.text?.toDouble()
-        
-        ref.child(Auth.auth().currentUser!.uid).updateChildValues((["MaxDistance": maxToPass]))
+        ref.child(Auth.auth().currentUser!.uid).updateChildValues((["MaxDistance": maxToPass!]))
         
         
     }
@@ -46,6 +46,10 @@ class UserSettingsController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.showLogin()
+
+            
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
@@ -76,8 +80,13 @@ class UserSettingsController: UIViewController {
                 // Get maxDistance
                 self.maxDistance = (userProfile["MaxDistance"] as! Double)
                 
+                let distanceString :String = String(format:"%.0f", self.maxDistance)
+                print("the string is", distanceString)
+                self.distanceLabel.text = distanceString
                 
                    print("Max distance inside", self.maxDistance)
+                
+                self.distanceSlider.value = Float(self.maxDistance)
                 
                 
             }
