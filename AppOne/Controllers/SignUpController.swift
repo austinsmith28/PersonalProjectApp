@@ -14,9 +14,9 @@ class SignUpController: UIViewController, UITextFieldDelegate  {
 
     @IBOutlet var email: UITextField!
     
-    @IBOutlet var displayName: UITextField!
-    
     @IBOutlet var password: UITextField!
+    
+
     
     
     @IBAction func createAccount(_ sender: Any) {
@@ -34,9 +34,6 @@ class SignUpController: UIViewController, UITextFieldDelegate  {
                 print(err!)
             }
             else{
-                
-            Database.database().reference().child("users").child(user!.uid).setValue(["email":self.email.text!, "displayName":self.displayName.text!])
-            
             
                 DispatchQueue.main.async {
                     let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -70,7 +67,7 @@ class SignUpController: UIViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         
         email.delegate = self
-        displayName.delegate = self
+        password.delegate = self
         password.delegate = self
     
         

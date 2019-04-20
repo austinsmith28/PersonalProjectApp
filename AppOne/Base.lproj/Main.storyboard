@@ -142,7 +142,6 @@
                                 <connections>
                                     <action selector="ContinueButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="73w-Pw-iNW"/>
                                     <action selector="backButton:" destination="xxx-b3-qJg" eventType="touchUpInside" id="RUD-8I-IJe"/>
-                                    <action selector="createAccount:" destination="xxx-b3-qJg" eventType="touchUpInside" id="dWf-wa-Vdx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create New Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZi-xf-x8p">
@@ -156,7 +155,6 @@
                                 <rect key="frame" x="20" y="308" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert"/>
                             </textField>
@@ -164,15 +162,13 @@
                                 <rect key="frame" x="20" y="385" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sru-Xx-YCT">
                                 <rect key="frame" x="20" y="454" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES"/>
                             </textField>
@@ -209,9 +205,8 @@
                         <viewLayoutGuide key="safeArea" id="dKG-aB-6if"/>
                     </view>
                     <connections>
-                        <outlet property="displayName" destination="9hR-ZY-llw" id="t61-UT-qda"/>
                         <outlet property="email" destination="SBl-wm-sbS" id="1Go-sd-Apc"/>
-                        <outlet property="password" destination="sru-Xx-YCT" id="0Lw-MR-WgV"/>
+                        <outlet property="password" destination="9hR-ZY-llw" id="t61-UT-qda"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZF-gN-ZaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,7 +352,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOs-Xz-n6F">
                                 <rect key="frame" x="181" y="82" width="53" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Refresh">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>

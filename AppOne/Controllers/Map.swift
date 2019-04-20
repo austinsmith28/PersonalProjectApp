@@ -47,7 +47,7 @@ class Map: UIViewController, GMSMapViewDelegate, GADRewardBasedVideoAdDelegate {
         super.viewDidLoad()
        
         GADRewardBasedVideoAd.sharedInstance().delegate = self
-        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: "ca-app-pub-4207054108955119/3872588523")
        
         
         
@@ -70,7 +70,7 @@ class Map: UIViewController, GMSMapViewDelegate, GADRewardBasedVideoAdDelegate {
     
     
     func getMaxDistance() {
-        print("in get maxDistance func")
+    
         let ref1 = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
         ref1.observe(.value, with: { (snapshot) in
             if snapshot.value as? [String : Any] != nil {
@@ -80,8 +80,11 @@ class Map: UIViewController, GMSMapViewDelegate, GADRewardBasedVideoAdDelegate {
                     return
                 }
                 
-                
+               
                 // Get maxDistance
+                if(userProfile["MaxDistance"] == nil){
+                    ref1.setValue(["MaxDistance" : 10])
+                }
                 self.maxDistance = userProfile["MaxDistance"] as! Double
                 
              
@@ -93,7 +96,6 @@ class Map: UIViewController, GMSMapViewDelegate, GADRewardBasedVideoAdDelegate {
     }
     
     func getUserLocation() {
-        print("in get location func")
        
         let ref1 = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
         ref1.observe(.value, with: { (snapshot) in
@@ -111,7 +113,6 @@ class Map: UIViewController, GMSMapViewDelegate, GADRewardBasedVideoAdDelegate {
                 //update userLocation
                 self.userLocation = CLLocation(latitude: userLat as! CLLocationDegrees, longitude: userLong as! CLLocationDegrees)
                 
-                print("user location", self.userLocation)
                 
             }
         }, withCancel: nil)
@@ -120,7 +121,7 @@ class Map: UIViewController, GMSMapViewDelegate, GADRewardBasedVideoAdDelegate {
     
     
     func loadMarkersFromDB() {
-        print ("in the loadmarker func")
+        
         removeOldMarkers()
         
         self.getMaxDistance()

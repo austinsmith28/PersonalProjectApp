@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey(googleAPICONST)
         
-        let map = Map()
-        map.getUserLocation()
+       
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user == nil {
+            
+            if user?.email == nil {
                 self.showLogin()
             } else {
                 self.showMap()
