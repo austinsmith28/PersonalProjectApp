@@ -2,8 +2,7 @@
 //  UserSettingsController.swift
 //  AppOne
 //
-//  Created by David Lepore on 4/7/19.
-//  Copyright © 2019 David&Austin. All rights reserved.
+//  Created by Austin Smith on 4/7/19.
 //
 
 import UIKit

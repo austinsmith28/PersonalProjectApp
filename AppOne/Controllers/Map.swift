@@ -3,7 +3,6 @@
 //  AppOne
 //
 //  Created by David Lepore on 3/18/19.
-//  Copyright © 2019 David & Austin. All rights reserved.
 //
 
 import UIKit

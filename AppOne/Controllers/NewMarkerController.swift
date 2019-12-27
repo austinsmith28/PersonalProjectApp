@@ -2,8 +2,7 @@
 //  CreatePartyController.swift
 //  AppOne
 //
-//  Created by David Lepore on 3/21/19.
-//  Copyright © 2019 David & Austin. All rights reserved.
+//  Created by Austin Smith on 3/21/19.
 //
 
 import UIKit
