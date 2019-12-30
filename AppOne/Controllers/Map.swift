@@ -2,7 +2,7 @@
 //  Map.swift
 //  AppOne
 //
-//  Created by David Lepore on 3/18/19.
+//  Created by Austin Smith on 3/18/19.
 //
 
 import UIKit
