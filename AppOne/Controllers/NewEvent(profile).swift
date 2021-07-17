@@ -2,7 +2,7 @@
 //  NewEvent(profile).swift
 //  AppOne
 //
-//  Created by David Lepore on 3/14/19.
+//  Created by Austin Smith on 3/14/19.
 //  Copyright © 2019 David&Austin. All rights reserved.
 //
 
